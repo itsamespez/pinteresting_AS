@@ -1,5 +1,15 @@
 
 <div class="jumbotron text-center">
 	<h1>TestFit</h1>
-	<p>First <%= link_to "Sign up","#", class: "btn btn-primary" %> and we'll get started!</p>
+
+	<% if user_signed_in? %>
+		# do something
+	<% else %>
+		<p>
+			First <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %> and we'll get started!
+		</p>
+		<p1> 
+			Already a member? Then <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>! 
+		</p1>
+	<% end %>
 </div>

@@ -11,8 +11,17 @@
 
 	<%= render 'layouts/header' %> 
 	<div class="container">
+		<% flash.each do |name, msg| %>
+    		 <%= content_tag(:div, msg, class: "alert alert-info") %>
+		<% end %>
 		<%= yield %>
 	</div>
+
+<!-- 	The line below, was having the flash message displayed twice. Above
+	from the formatted blue box, and again below the container in standard text.
+   <p class="notice"><%= notice %></p> -->
+   <p class="alert"><%= alert %></p>
+
 
 </body>
 </html>
